@@ -51,4 +51,21 @@ public class SimpleDate {
         return this.year - other.year - yearRemoved;
     }
 
+    public boolean equals (Object object) {
+        if (this == object) {
+            return true;
+        }
+
+        // Comprueba si el objeto es nulo o no es de tipo SimpleDate
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        // Convierte el objeto a SimpleDate y compara los atributos
+        SimpleDate other = (SimpleDate) object;
+        return this.day == other.day && this.month == other.month && this.year == other.year;
+    }
+    
+
+
 }
