@@ -19,4 +19,25 @@ public class LicensePlate {
         return country + " " + liNumber;
     }
 
+    @Override
+    public boolean equals (Object obj){
+        if (this == obj){
+            return true;
+        }
+        
+        
+        if (obj == null || getClass() != obj.getClass()){
+            return false;
+        }
+        
+        LicensePlate other = (LicensePlate) obj;
+        return this.liNumber.equals(other.liNumber) && this.country.equals(other.country);
+            
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(country, liNumber); // Generamos el hash basado en los atributos
+    }
+
 }
