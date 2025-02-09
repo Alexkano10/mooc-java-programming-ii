@@ -15,18 +15,24 @@ public class Warehouse {
         this.balance = 0.0;
     }
 
+    //Devuelve el balance actual del almacén, es decir, la cantidad de espacio ocupado por los productos.
     public double getBalance() {
         return this.balance;
     }
 
+    //Devuelve la capacidad total del almacén
     public double getCapacity() {
         return this.capacity;
     }
 
+    //Devuelve la cantidad de  espacio que queda en el almacen
     public double howMuchSpaceLeft() {
         return this.capacity - this.balance;
     }
 
+    //Agrega una cantidad de productos al almacen
+    //Si la cantidad es negativa, no se hace nada
+    //Si la cantidad es cero, no se hace nada
     public void addToWarehouse(double amount) {
         if (amount < 0) {
             return;
@@ -38,6 +44,10 @@ public class Warehouse {
         }
     }
 
+
+    //Retira una cantidad de productos del almacen
+    //Si la cantidad es negativa, se retira 0
+    //Si la cantidad es mayor que el balance, se retira lo que queda
     public double takeFromWarehouse(double amount) {
         if (amount < 0) {
             return 0.0;
@@ -51,7 +61,7 @@ public class Warehouse {
         this.balance = this.balance - amount;
         return amount;
     }
-
+    //Devuelve una representación en cadena del almacen
     public String toString() {
         return "balance = " + this.balance + ", space left " + howMuchSpaceLeft();
     }
